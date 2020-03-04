@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Open Sans;
+}
+
+.page {
+  position: relative;
+}
+
+.task {
+  list-style: none;
+  margin: 50px;
+  display: block;
+}
+.task__content {
+  box-sizing: border-box;
+  padding: 5px 10px;
+  margin: 10px 0px 20px 0px;
+  background: #ccc;
+}
+.task__content::after {
+  content: "";
+  display: block;
+  height: 25px;
+  width: 100%;
+  background: red;
+}
+
+.task__initializer {
+  position: fixed;
+  width: 70%;
+  bottom: 30px;
+  height: 50px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+.task__initializer form {
+  height: 100%;
+  width: 100%;
+}
+.task__initializer input {
+  border: none;
+  display: block;
+  padding: 0px 10px;
+  height: 100%;
+  width: 100%;
+  border: 2px solid #ccc;
+  border-radius: 30px;
+}
+
+/*# sourceMappingURL=index.css.map */
