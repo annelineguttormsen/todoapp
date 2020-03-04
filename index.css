@@ -27,11 +27,12 @@
 .task__content button {
   display: block;
 }
-.task__completed {
-  text-decoration: line-through;
-}
-.task__completed button {
+.task__content button a {
   text-decoration: none;
+  color: black;
+}
+.task__completed p {
+  text-decoration: line-through;
 }
 
 .fixed__wrapper {
