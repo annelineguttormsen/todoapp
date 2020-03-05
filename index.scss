@@ -1,3 +1,5 @@
+@import "col";
+
 * {
 	margin:0;
 	padding:0;
@@ -8,7 +10,6 @@
 	&__wrap {
 		position:relative;
 		margin:0 auto;
-		width:560px
 	}
 }
 .task {
@@ -17,11 +18,12 @@
 	display:block;
 	&__content {
 		box-sizing:border-box;
-		padding:5px 10px;
+		padding:10px;
 		margin:10px 0px 20px 0px;
 		background:#ccc;
 		button {
 			display:block;
+			padding:5px;
 		}
 		button a {
 			text-decoration:none;
@@ -36,17 +38,16 @@
 }
 .fixed__wrapper {
 	position:fixed;
-	width:100%;
 	bottom:0px;
 }
 .task__initializer {
-	width:70%;
+	display:block;
 	height:50px;
 	margin:30px auto;
 	box-sizing:border-box;
 	form {
 		height:100%;
-		width:100%;
+		display:block;
 		position:relative;
 	}
 	input {
@@ -58,7 +59,7 @@
 		border:2px solid #ccc;
 		border-radius:30px;
 	}
-	button {
+	&--submit {
 		position:absolute;
 		top:15px;
 		right:0px;
@@ -66,3 +67,5 @@
 		width:50px;
 	}
 }
+
+@import "media";
