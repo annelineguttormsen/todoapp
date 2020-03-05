@@ -5,39 +5,56 @@
 	padding:0;
 	font-family:Open Sans;
 }
+button {
+	border:none;
+}
 .page {
 	position:relative;
 	&__wrap {
 		position:relative;
 		margin:0 auto;
+		padding:50px;
 	}
 }
 .task {
-	list-style:none;
-	margin:50px;
+	padding:10px;
 	display:block;
-	&__content {
-		box-sizing:border-box;
+	background:#ccc;
+	&__list {
+		list-style:none;
 		padding:10px;
-		margin:10px 0px 20px 0px;
-		background:#ccc;
-		button {
-			display:block;
-			padding:5px;
+		&__element {
+			display:inline-block;
 		}
-		button a {
-			text-decoration:none;
-			color:black;
+		input [type="checkbox"] {
+			display:inline-block;
 		}
+	}
+	button {
+		display:block;
+		padding:5px;
+		margin-left:5px;
+		float:right;
+	}
+	button a {
+		text-decoration:none;
+		color:black;
 	}
 	&__completed {
 		p {
 			text-decoration:line-through;
 		}
 	}
+	&::after {
+		content:"";
+		display:table;
+		clear:both;
+	}
+
 }
 .fixed__wrapper {
 	position:fixed;
+	box-sizing:border-box;
 	bottom:0px;
 }
 .task__initializer {
@@ -47,23 +64,28 @@
 	box-sizing:border-box;
 	form {
 		height:100%;
+		width:100%;
 		display:block;
 		position:relative;
 	}
 	input {
 		border:none;
-		display:inline-block;
-		padding:0px 10px;
+		box-sizing:border-box;
+		display:block;
 		height:100%;
 		width:100%;
+		padding-left:10px;
 		border:2px solid #ccc;
 		border-radius:30px;
 	}
 	&--submit {
 		position:absolute;
-		top:15px;
+		border-top-right-radius:30px;
+		border-bottom-right-radius:30px;
+		border:2px solid #ccc;
+		top:0px;
 		right:0px;
-		height:25px;
+		height:100%;
 		width:50px;
 	}
 }
