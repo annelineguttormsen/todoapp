@@ -11,34 +11,29 @@ button {
 }
 .page {
 	position:relative;
-	&__wrap {
-		position:relative;
-		margin:0 auto;
-		padding:50px;
-	}
+	margin:0 auto;
+	padding:50px;
 }
 .header {
 	background:#bcbcbc;
 	padding:10px;
 }
-.task {
+.task__list {
 	display:block;
-	&__list {
-		list-style:none;
-		padding:10px;
-		background:#ccc;
-		margin:10px 0px 15px 0px;
-		&::after {
-			content:"";
-			display:table;
-			clear:both;
-		}
-		&__element {
-			display:inline-block;
-		}
-		input [type="checkbox"] {
-			display:inline-block;
-		}
+	list-style:none;
+	padding:10px;
+	background:#ccc;
+	margin:10px 0px 15px 0px;
+	&::after {
+		content:"";
+		display:table;
+		clear:both;
+	}
+	&__element {
+		display:inline-block;
+	}
+	input [type="checkbox"] {
+		display:inline-block;
 	}
 	button {
 		display:block;
@@ -55,13 +50,12 @@ button {
 			text-decoration:line-through;
 		}
 	}
-	
-
 }
 .fixed__wrapper {
 	position:fixed;
 	box-sizing:border-box;
 	bottom:0px;
+	left:0;
 }
 .task__initializer {
 	display:block;
@@ -74,7 +68,7 @@ button {
 		display:block;
 		position:relative;
 	}
-	textarea {
+	&--input {
 		border:none;
 		box-sizing:border-box;
 		display:block;

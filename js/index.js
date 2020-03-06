@@ -1,8 +1,6 @@
-let toDoItems = new Array();
+const rootElem = document.body;
 
-//TODO: gjør om content til array
-
-toDoItems = [
+let toDoItems = [
 	{
 		id:0,
 		listItems:[
@@ -28,9 +26,27 @@ toDoItems = [
 ];
 
 
-function App() {
-	return Task(toDoItems);
+renderApp(toDoItems);
+
+function renderApp(data) {
+	rootElem.innerHTML = App(data);
+
+	document.querySelector("form")
+		.addEventListener("submit",(event)=>handleTodoFormAdd(event,data));
 }
+
+
+function App(props) {
+	return `
+		<div class="col-12 header">
+			<h1>Todo list</h1>
+		</div>
+		${Task(props)}
+		${TaskInitializer()}
+
+	`;
+}
+
 
 function Task(props) {
 	return `
@@ -51,11 +67,10 @@ function TaskList(props) {
 				<input type="checkbox" ${props.listItems[i].status}>
 				${props.listItems[i].data}
 			</li>
-			
 		`
 		);
 	}
-	console.log(listElements);
+	listElements.join("");
 	return `
 	<ul class="task__list">
 		${listElements}
@@ -65,13 +80,41 @@ function TaskList(props) {
 	`;
 }
 
+function TaskInitializer() {
+	return `
+	<div class="col-12 fixed__wrapper">
+		<div class="col-10 col-md-8 task__initializer">
+			<form>
+				<input class="task__initializer--input" type="text" placeholder="Add item">
+				<button class="task__initializer--submit" type="submit">Add</button>
+			</form>
+		</div>
+	</div>
+	`;
+}
 
-const taskDiv = document.querySelector(".task");
-taskDiv.innerHTML = App();
 
-document.querySelector(".task__initializer--submit").addEventListener("submit",(event)=>handleTodoFormAdd(event,data));
+
+//from https://stackoverflow.com/a/2117523
+function uuidv4() {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+    var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+    return v.toString(16);
+  });
+}
 
 function handleTodoFormAdd(event,data) {
 	event.preventDefault();
-	console.log("form");
+	const updatedData = {
+		"id": uuidv4(),
+		"listItems": [
+			{
+				"data": event.target.elements[0].value,
+				"status":""
+			}
+		]
+	};
+	//oppdater toDoItems
+	data.push(updatedData);
+	renderApp(data);
 }
