@@ -1,39 +1,77 @@
-//const rootElem = document.getElementById("root");
-//rootElem.innerHTML = App();
-
 let toDoItems = new Array();
 
+//TODO: gjør om content til array
+
 toDoItems = [
-	{"id":0,
-	"content":"Denne oppgaven er ferdig og derfor checked",
-	"status":"checked"},
-	{"id":1,
-	"content":"Denne oppgaven er ferdig og derfor checked",
-	"status":""}
+	{
+		id:0,
+		listItems:[
+			{
+				data:"Denne oppgaven er ferdig",
+				status:"checked"
+			},
+			{
+				data:"Denne oppgaven er ferdig",
+				status:"checked"
+			},
+		]
+	},
+	{
+		id:1,
+		listItems:[
+			{
+				data:"Denne oppgaven er ikke ferdig",
+				status:""
+			}
+		]
+	}
 ];
+
+
+function App() {
+	return Task(toDoItems);
+}
 
 function Task(props) {
 	return `
-	<div class="task">
-		<ul class="task__list">
-			${
-				props.map(function (i) {
-					return TaskListElement(i);
-				})
-			}
-		</ul>
-		<button>Change</button>
-		<button>Delete</button>
-	</div>
+		${
+			props.map(function (i) {
+				return TaskList(i);
+			}).join("")
+		}
 	`;
 }
-//TODO: legg til forløkke i li
 
-function TaskListElement(props) {
+
+function TaskList(props) {
+	let listElements = new Array;
+	for (let i = 0;i<props.listItems.length;i++) {
+		listElements.push(`
+			<li class="task__list__element">
+				<input type="checkbox" ${props.listItems[i].status}>
+				${props.listItems[i].data}
+			</li>
+			
+		`
+		);
+	}
+	console.log(listElements);
 	return `
-	<li class="task__list__element">
-		<input type="checkbox" ${props.status}>
-		${props.content}
-	</li>
+	<ul class="task__list">
+		${listElements}
+		<button>Change</button>
+		<button>Delete</button>
+	</ul>
 	`;
+}
+
+
+const taskDiv = document.querySelector(".task");
+taskDiv.innerHTML = App();
+
+document.querySelector(".task__initializer--submit").addEventListener("submit",(event)=>handleTodoFormAdd(event,data));
+
+function handleTodoFormAdd(event,data) {
+	event.preventDefault();
+	console.log("form");
 }

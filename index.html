@@ -5,27 +5,20 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>To do app</title>
 	<link rel="stylesheet" type="text/css" href="css/index.css">
-	<script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript" src="js/index.js" defer></script>
 </head>
 <body class="page">
-	<div class="header">
-		
-	</div>
 	<div class="col-12 page__wrap">
-		<div class="task">
-			<ul class="task__list">
-				<input type="checkbox">
-				<li class="task__list__element">Denne oppgaven er enda ikke gjort</li>
-				<!--eventuell liste-->
-			</ul>
-			<button><a href="#">Change</a></button>
-			<button><a href="#">Delete</a></button>
+		<div class="col-12 header">
+			<h1>To do app</h1>
 		</div>
-	</div>
+		<div class="task">
+		</div>
+	</div><!--end page__wrap-->
 	<div class="col-12 fixed__wrapper">
 		<div class="col-10 col-md-8 task__initializer">
 			<form>
-				<input type="text" placeholder="Add item">
+				<textarea placeholder="Add item"></textarea>
 				<button class="task__initializer--submit" type="submit">Add</button>
 			</form>
 		</div>

@@ -7,6 +7,7 @@
 }
 button {
 	border:none;
+	cursor:pointer;
 }
 .page {
 	position:relative;
@@ -16,13 +17,22 @@ button {
 		padding:50px;
 	}
 }
-.task {
+.header {
+	background:#bcbcbc;
 	padding:10px;
+}
+.task {
 	display:block;
-	background:#ccc;
 	&__list {
 		list-style:none;
 		padding:10px;
+		background:#ccc;
+		margin:10px 0px 15px 0px;
+		&::after {
+			content:"";
+			display:table;
+			clear:both;
+		}
 		&__element {
 			display:inline-block;
 		}
@@ -33,7 +43,7 @@ button {
 	button {
 		display:block;
 		padding:5px;
-		margin-left:5px;
+		margin:5px 0px 0px 5px;
 		float:right;
 	}
 	button a {
@@ -45,11 +55,7 @@ button {
 			text-decoration:line-through;
 		}
 	}
-	&::after {
-		content:"";
-		display:table;
-		clear:both;
-	}
+	
 
 }
 .fixed__wrapper {
@@ -68,15 +74,17 @@ button {
 		display:block;
 		position:relative;
 	}
-	input {
+	textarea {
 		border:none;
 		box-sizing:border-box;
 		display:block;
 		height:100%;
 		width:100%;
-		padding-left:10px;
+		padding:5px 50px 5px 10px;
 		border:2px solid #ccc;
 		border-radius:30px;
+		overflow:scroll;
+		resize:none;
 	}
 	&--submit {
 		position:absolute;
